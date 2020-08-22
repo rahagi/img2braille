@@ -47,11 +47,7 @@ func binToBraille(bin string) (string, error) {
 	if len(unicodeVal) == 3 {
 		unicodeVal += "0"
 	}
-	res, err := strconv.Unquote(`"\u` + unicodeVal + `"`)
-	if err != nil {
-		return "", err
-	}
-	return res, nil
+	return strconv.Unquote(`"\u` + unicodeVal + `"`)
 }
 
 func pixToBin(pix []color.Color) string {
