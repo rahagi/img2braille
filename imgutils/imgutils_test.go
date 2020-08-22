@@ -1,9 +1,11 @@
-package imgutils
+package imgutils_test
 
 import (
 	"image/png"
 	"os"
 	"testing"
+
+	. "github.com/cytopz/img2braille/imgutils"
 )
 
 func TestThresh(t *testing.T) {
