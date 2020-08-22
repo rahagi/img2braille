@@ -1,7 +1,7 @@
 # img2braille
 
-Command line utility to convert images to braille unicode art
-
+(useless) Command line utility to convert images to braille unicode art
+```
 ⣿⣿⣿⣿⠿⢿⣛⣛⣛⣛⣻⠿⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
 ⣿⣿⣿⣶⣛⣩⣭⣭⣭⣍⣛⣛⠿⠶⣾⣭⣭⣭⣿⣿⣛⣛⡻⠿⣿
 ⣿⣿⣿⣿⣛⡭⠭⠭⢭⣍⣛⠛⠿⣷⣶⣭⣍⣛⣛⣋⣩⣝⣛⠿⣶
@@ -15,3 +15,4 @@ Command line utility to convert images to braille unicode art
 ⡿⢻⣿⠟⠐⠤⣶⣓⣒⠶⣤⣭⣉⡛⢿⣿⣌⣿⣿⣿⣿⣿⡿⢰⠀
 ⡇⢿⠷⠖⣶⣶⣶⡦⠬⢉⣓⠒⠮⢝⡠⣿⣿⣿⣿⣿⣿⣰⠀⠀⠀
 ⠛⠒⠛⠛⠛⠛⠛⠒⠓⠒⠘⠛⠓⠒⠀⠛⠘⠛⠛⠛⠐⠀⠀⠀⠀
+```
