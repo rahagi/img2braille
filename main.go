@@ -67,6 +67,7 @@ func main() {
 	fileName := flag.String("i", "", "input file")
 	w := flag.Uint("w", 50, "width")
 	h := flag.Uint("h", 0, "height")
+  t := flag.Int("t", -1, "manual threshold (optional)")
 	flag.Parse()
 
 	img, err := imgutils.OpenImg(*fileName)
@@ -74,7 +75,7 @@ func main() {
 		log.Fatal("error opening file: ", err)
 	}
 	img = imgutils.Resize(*w, *h, img)
-	binImg := imgutils.Threshold(imgutils.ToGray(img))
+	binImg := imgutils.Threshold(imgutils.ToGray(img), *t)
 	result := toBraille(binImg)
 	fmt.Printf("%s\n", result)
 }

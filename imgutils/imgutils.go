@@ -42,11 +42,29 @@ func ToGray(img image.Image) *image.Gray {
 }
 
 // Threshold does automatic image segmentation
-// using Otsu's Method
+// using Otsu's Method or manual thresholding if threshold >= 0
 //
 // http://www.labbookpages.co.uk/software/imgProc/otsuThreshold.html
-func Threshold(img *image.Gray) *image.Gray {
-	hist := histogramGray(img)
+func Threshold(img *image.Gray, threshold int) *image.Gray {
+  var t uint8
+  t = uint8(threshold)
+  if threshold < 0 {
+    t = otsu(img)
+  }
+	// Segment image
+	binImg := image.NewGray(img.Bounds())
+	for i := 0; i < len(binImg.Pix); i++ {
+		if img.Pix[i] > t {
+			binImg.Pix[i] = 255
+		} else {
+			binImg.Pix[i] = 0
+		}
+	}
+	return binImg
+}
+
+func otsu(img *image.Gray) uint8 {
+  hist := histogramGray(img)
 	sum := 0
 	for i := 0; i < 256; i++ {
 		sum += i * hist[i]
@@ -74,17 +92,7 @@ func Threshold(img *image.Gray) *image.Gray {
 			threshold = uint8(t)
 		}
 	}
-
-	// Segment image
-	binImg := image.NewGray(img.Bounds())
-	for i := 0; i < len(binImg.Pix); i++ {
-		if img.Pix[i] > threshold {
-			binImg.Pix[i] = 255
-		} else {
-			binImg.Pix[i] = 0
-		}
-	}
-	return binImg
+  return threshold
 }
 
 func histogramGray(gray *image.Gray) []int {
