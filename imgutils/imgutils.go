@@ -46,11 +46,11 @@ func ToGray(img image.Image) *image.Gray {
 //
 // http://www.labbookpages.co.uk/software/imgProc/otsuThreshold.html
 func Threshold(img *image.Gray, threshold int) *image.Gray {
-  var t uint8
-  t = uint8(threshold)
-  if threshold < 0 {
-    t = otsu(img)
-  }
+	var t uint8
+	t = uint8(threshold)
+	if threshold < 0 {
+		t = otsu(img)
+	}
 	// Segment image
 	binImg := image.NewGray(img.Bounds())
 	for i := 0; i < len(binImg.Pix); i++ {
@@ -64,7 +64,7 @@ func Threshold(img *image.Gray, threshold int) *image.Gray {
 }
 
 func otsu(img *image.Gray) uint8 {
-  hist := histogramGray(img)
+	hist := histogramGray(img)
 	sum := 0
 	for i := 0; i < 256; i++ {
 		sum += i * hist[i]
@@ -92,7 +92,7 @@ func otsu(img *image.Gray) uint8 {
 			threshold = uint8(t)
 		}
 	}
-  return threshold
+	return threshold
 }
 
 func histogramGray(gray *image.Gray) []int {
